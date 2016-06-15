@@ -1,0 +1,22 @@
+{
+  "name": "react-egg",
+  "version": "1.0.0",
+  "description": "following the egghead.io courses",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blak3Nick/react-egg.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Blak3Nick/react-egg/issues"
+  },
+  "homepage": "https://github.com/Blak3Nick/react-egg#readme",
+  "dependencies": {
+    "react": "^0.14.3"
+  }
+}
