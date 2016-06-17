@@ -24328,6 +24328,8 @@
 
 	var Home = __webpack_require__(210);
 
+	var Profile = __webpack_require__(211);
+
 	var Router = __webpack_require__(159);
 
 	var Route = Router.Route;
@@ -24337,6 +24339,7 @@
 	module.exports = React.createElement(
 		Route,
 		{ path: '/', component: Main },
+		React.createElement(Route, { path: 'profile/:username', component: Profile }),
 		React.createElement(IndexRoute, { component: Home })
 	);
 
@@ -24397,6 +24400,58 @@
 	});
 
 	module.exports = Home;
+
+/***/ },
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var Router = __webpack_require__(159);
+
+	var Repos = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./Github/Repos\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var UserProfile = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./Github/UserProfile\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var Notes = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./Notes/Notes\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var Profile = React.createClass({
+	  displayName: 'Profile',
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      notes: [1, 2, 3],
+	      bio: {
+	        name: 'Tyler McGinnis'
+	      },
+	      repos: ['a', 'b', 'c']
+	    };
+	  },
+	  render: function render() {
+	    console.log(this.props);
+	    return React.createElement(
+	      'div',
+	      { className: 'row' },
+	      React.createElement(
+	        'div',
+	        { className: 'col-md-4' },
+	        React.createElement(UserProfile, { username: this.props.params.username, bio: this.state.bio })
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'col-md-4' },
+	        React.createElement(Repos, { repos: this.state.repos })
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'col-md-4' },
+	        React.createElement(Notes, { notes: this.state.notes })
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Profile;
 
 /***/ }
 /******/ ]);
